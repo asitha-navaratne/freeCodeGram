@@ -4,18 +4,18 @@
 <div class="container">
     <div class="row">
         <div class="col-3 p-5">
-            <img src="https://archive.org/download/github.com-freeCodeCamp-chapter_-_2019-10-19_07-29-14/cover.jpg" alt="Profile picture" class="rounded-circle">
+            <img src="https://archive.org/download/github.com-freeCodeCamp-chapter_-_2019-10-19_07-29-14/cover.jpg" alt="Profile picture" class="rounded-circle w-100">
         </div>
-        <div class="col-9 pt-5 ps-5">
-            <div class="ps-5"><h1>freecodecamp</h1></div>
+        <div class="col-9 pt-5">
+            <div class="ps-5"><h1>{{ $user->username }}</h1></div>
             <div class="d-flex">
                 <div class="ps-5"><strong>153</strong> posts</div>
                 <div class="ps-5"><strong>1.1k</strong> followers</div>
                 <div class="ps-5"><strong>832</strong> following</div>
             </div>
-            <div class="pt-4 ps-5 font-weight-bold">freeCodeCamp.org</div>
-            <div class="ps-5">We're a global community of millions of people learning to code together. We're an open source, donor-supported, 501(c)(3) nonprofit.</div>
-            <div class="ps-5"><a href="www.freecodecamp.org">www.freecodecamp.org</a></div>
+            <div class="pt-4 ps-5 font-weight-bold">{{ $user->profile->title }}</div>
+            <div class="ps-5">{{ $user->profile->description }}</div>
+            <div class="ps-5"><a href="#">{{ $user->profile->url }}</a></div>
         </div>
     </div>
     <div class="row pt-5">
