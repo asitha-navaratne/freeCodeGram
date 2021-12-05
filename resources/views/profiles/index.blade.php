@@ -4,21 +4,27 @@
 <div class="container">
     <div class="row">
         <div class="col-3 p-5">
-            <img src="https://archive.org/download/github.com-freeCodeCamp-chapter_-_2019-10-19_07-29-14/cover.jpg" alt="Profile picture" class="rounded-circle w-100">
+            <img src="/storage/{{ $user->profile->image }}" alt="Profile picture" class="rounded-circle w-100">
         </div>
-        <div class="col-9 pt-5">
-            <div class="d-flex justify-content-between align-items-baseline ps-5">
+        <div class="col-9 pt-5 ps-5">
+            <div class="d-flex justify-content-between align-items-baseline">
                 <h1>{{ $user->username }}</h1>
-                <a href="/p/create">Add New Post</a>
+                @can('update', $user->profile)
+                    <a href="/p/create">Add New Post</a>
+                @endcan
             </div>
+            @can('update', $user->profile)
+                <a href="/profile/{{ $user->id }}/edit">Edit Profile</a>
+            @endcan
+
             <div class="d-flex">
-                <div class="ps-5"><strong>{{ $user->posts->count() }}</strong> posts</div>
+                <div><strong>{{ $user->posts->count() }}</strong> posts</div>
                 <div class="ps-5"><strong>1.1k</strong> followers</div>
                 <div class="ps-5"><strong>832</strong> following</div>
             </div>
-            <div class="pt-4 ps-5 font-weight-bold">{{ $user->profile->title }}</div>
-            <div class="ps-5">{{ $user->profile->description }}</div>
-            <div class="ps-5"><a href="#">{{ $user->profile->url }}</a></div>
+            <div class="pt-4 fw-bold">{{ $user->profile->title }}</div>
+            <div>{{ $user->profile->description }}</div>
+            <div><a href="#">{{ $user->profile->url }}</a></div>
         </div>
     </div>
     <div class="row pt-5">
