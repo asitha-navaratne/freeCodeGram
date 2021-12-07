@@ -20,4 +20,8 @@ class Profile extends Model
 
         return '/storage/' . $path;
     }
+
+    public function followers() {
+        return $this->belongsToMany(User::class);
+    }
 }
